@@ -1,0 +1,141 @@
+
+\documentclass[amsmath,amssymb
+    [#- if options.styling == "aps" -#], aps
+    [#- if options.aps_journal_type -#]
+    ,[-options.aps_journal_type-]
+    [#- endif -#]
+    [# endif -#]
+    [#- if options.styling == "aip"#], aip
+    [#- if options.aip_journal_type -#]
+    ,[-options.aip_journal_type-]
+    [#- endif -#]
+    [#- endif -#]
+    [#- if options.styling == "aapm" -#], aapm
+    [#- if options.aapm_journal_type -#]
+    ,[-options.aapm_journal_type-]
+    [#- endif -#]
+    [#- endif -#]
+    [#- if options.styling == "sor" -#], sor
+    [#- if options.sor_journal_type -#]
+    ,[-options.sor_journal_type-]
+    [#- endif -#]
+    [#- endif -#]
+    [#- if options.formatting -#]
+    ,[-options.formatting-]
+    [#- endif -#]
+    [#- if options.draft -#],preprint
+    [#- endif -#]
+    [#- if options.reprint -#],reprint
+    [#- endif -#]
+    [#- if options.preprint -#],preprintnumbers
+    [#- endif -#]
+    [#- if options.linenumbers -#]
+    ,linenumbers
+    [#- endif -#]
+    [#- if options.superscriptaddress -#]
+    ,superscriptaddress
+    [#- endif -#]
+    [#- if options.groupedaddress -#]
+    ,groupedaddress
+    [#- endif -#]
+    [#- if options.unsortedaddress -#]
+    ,unsortedaddress
+    [#- endif -#]
+    [#- if options.runinaddress -#]
+    ,runinaddress
+    [#- endif -#]
+    [#- if options.footinbib -#]
+    ,footinbib
+    [#- endif -#]
+    [#- if options.nofootinbib -#]
+    ,nofootinbib
+    [#- endif -#]
+    [#- if options.bibnotes -#]
+    ,bibnotes
+    [#- endif -#]
+    [#- if options.nobibnotes -#]
+    ,nobibnotes
+    [#- endif -#]
+    [#- if doc.keywords #],showkeys[#- endif -#]
+    [#- if options.paper_size -#]
+    ,[-options.paper_size-]
+    [#- endif -#]
+]{revtex4-2}
+
+\usepackage{orcidlink}
+\usepackage{datetime}
+[- IMPORTS -]
+
+\begin{document}
+[#- if options.preprint #]
+\preprint{[-options.preprint-]}
+[# endif -#]
+\title{[-doc.title-]}
+[#- if options.footnote_title #]
+\thanks{[-options.footnote_title-]}
+[# endif -#]
+
+[#- for author in doc.authors -#]
+\author{[-- author.name --]
+[#- if author.orcid #]
+\orcidlink{[-author.orcid-]}
+[# endif -#]
+}
+[#- if author.email #]
+\email{[-author.email-]}
+[# endif -#]
+
+[#- if author.website #]
+\homepage{[-author.website-]}
+[# endif -#]
+
+[#- if author.affiliations #]
+[#- for affiliation in author.affiliations -#]
+\affiliation{[-- affiliation.value.name --]}
+[#- endfor -#]
+[# endif -#]
+
+[#- if author.collaborations #]
+[#- for collaboration in author.collaborations -#]
+\collaboration{[-- collaboration.value.name --]}\noaffiliation
+[#- endfor -#]
+[# endif -#]
+[#- endfor -#]
+
+[#- if doc.date #]
+\newdate{articleDate}{[-doc.date.day-]}{[-doc.date.month-]}{[-doc.date.year-]}
+\date{\displaydate{articleDate}}
+[# else #]
+\date{\today}
+[# endif -#]
+
+[#- if doc.keywords #]
+\keywords{[- doc.keywords | join(", ") -]}
+[# endif -#]                            
+
+[#- if parts.abstract #]
+\begin{abstract}
+[-parts.abstract-]
+\end{abstract}
+[# endif -#]
+
+\maketitle
+
+[-CONTENT-]
+
+[#- if parts.acknowledgments #]
+\begin{acknowledgments}
+[-parts.acknowledgments-]
+\end{acknowledgments}
+[# endif -#]
+
+[#- if parts.appendix #]
+\appendix
+[-parts.appendix-]
+[# endif -#]
+
+[#- if doc.bibliography #]
+\bibliography{[- doc.bibliography | join(", ") -]}
+[# endif -#]
+
+\end{document}

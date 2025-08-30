@@ -1,0 +1,246 @@
+jtex: v1
+title: Physical Review Journals
+description: Template for Physical Review Journals
+version: 1.0.0
+license: MIT
+source: https://journals.aps.org/
+thumbnail: ./thumbnail.png
+authors:
+  - name: Frank Zimmer
+    website: https://www.frankzimmer.net
+    affiliations:
+      - 'no'
+tags:
+  - paper
+  - two-column
+parts:
+  - id: abstract
+    required: true
+    description: >
+      A good abstract will begin with a short description of the problem being
+      addressed, briefly describe the new data or analyses, then briefly states
+      the main conclusion(s) and how they are supported and uncertainties.
+  - id: acknowledgments
+    required: false
+    description: >
+      Acknowledgments are a simple statement of thanks that appears at the end
+      of a manuscript. They can recognize named individuals who contributed
+      scientifically to the research of the paper; cite the funding agencies
+      that provided financial support for the work; and note the affiliation of
+      institutions in the byline. Acknowledgments to people precede those of
+      financial support. Acknowledgments may not recognize those who helped in
+      preparing the paper; editors who handled the peer review of the paper;
+      those who contributed general encouragement (family, friends); or those
+      who provided services that were not directly part of the research.
+      Acknowledgements may not include a dedication or a memorial. Acknowledge
+      positions, titles, and awards only if they provided funding for the
+      research and state the source of financial funding in such cases. Noting
+      the date associated with an award is not appropriate.
+  - id: appendix
+    required: false
+    description: >
+      Appendices contain additional material needed to understand the article.
+      The appendix part can contain more than one section.
+doc:
+  - id: authors
+    required: true
+  - id: title
+    required: true
+  - id: bibliography
+  - id: keywords
+  - id: date
+options:
+  - id: draft
+    type: boolean
+    required: false
+    default: false
+    description: Mark the document as draft.
+  - id: preprint
+    type: string
+    max_chars: 20
+    required: false
+    description: >-
+      Institutional report numbers can be specified using this (see prepint
+      revtex4-2 documentation).
+  - id: linenumbers
+    type: boolean
+    required: false
+    default: false
+    description: Number lines (requires lineno.sty)
+  - id: superscriptaddress
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      A major way of displaying authors and affiliations information is to use
+      superscripts on the authors and affiliations. It should be mentioned that
+      the affiliations for the superscriptaddress are presented and numbered in
+      the order that they are encountered.
+  - id: groupedaddress
+    type: boolean
+    required: false
+    default: true
+    description: >-
+      To group authors with the same affiliation together this option can be
+      chosen. This is the default behavior for most journals.
+  - id: unsortedaddress
+    type: boolean
+    required: false
+    default: false
+    description: Grouping of authors into specific groups (see groupedaddress) is disabled.
+  - id: runinaddress
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      Like groupedaddress, but joins multiple affiliations together into a
+      single sequence separated by commas.
+  - id: footinbib
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      The footnote text can either appear at the bottom of a page or as part of
+      the bibliography. This option results it in only showing up in the
+      bibliography. This can be used to override the default behavior of the
+      journal.
+  - id: nofootinbib
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      The footnote text can either appear at the bottom of a page or as part of
+      the bibliography. This option results it in only showing up on the bottom
+      of the page. This can be used to override  the default behavior of the
+      journal.
+  - id: bibnotes
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      Specifies whether additional author information such as email or homepage
+      are put on the first page or at the start of the bibliography. For
+      instance, the prb option puts all such footnotes at the start of the
+      bibliography while the prl journal styles displays them on the first page.
+      One can override a journal style’s default behavior by specifying
+      explicitly the class option bibnotes (puts the footnotes at the start of
+      the bibliography) or nobibnotes (puts them on the first page).
+  - id: nobibnotes
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      Specifies whether additional author information such as email or homepage
+      are put on the first page or at the start of the bibliography. For
+      instance, the prb option puts all such footnotes at the start of the
+      bibliography while the prl journal styles displays them on the first page.
+      One can override a journal style’s default behavior by specifying
+      explicitly the class option bibnotes (puts the footnotes at the start of
+      the bibliography) or nobibnotes (puts them on the first page).
+  - id: reprint
+    type: boolean
+    required: false
+    default: false
+    description: >-
+      Closely approximate a given journal’s style. Can be either single or
+      two-column formatting depending on the journal.
+  - id: footnote_title
+    type: string
+    required: false
+    description: Adds a footnote to the article title.
+  - id: styling
+    type: choice
+    description: >-
+      Journal styling ":" American Physical Society (aps), American Institute of
+      Physics (aip), American Association of Physicists in Medicine (aapm),
+      Society of Rheology (sor)
+    default: aps
+    required: true
+    choices:
+      - aps
+      - aip
+      - aapm
+      - sor
+  - id: aps_journal_type
+    required: false
+    type: choice
+    description: The types of American Physical Society journals
+    default: pra
+    choices:
+      - prl
+      - pra
+      - prb
+      - prc
+      - prd
+      - pre
+      - prab
+      - prper
+      - prx
+      - prapplied
+      - prfluids
+      - prmaterials
+      - physrev
+      - rmp
+  - id: aip_journal_type
+    type: choice
+    description: The types of American Institute of Physics journals
+    default: apl
+    choices:
+      - apl
+      - bmf
+      - cha
+      - jap
+      - jcp
+      - jmp
+      - rse
+      - pof
+      - pop
+      - rsi
+      - apm
+      - adv
+      - sd
+  - id: aapm_journal_type
+    type: choice
+    description: The types of American Association of Physicists in Medicine journals
+    default: mph
+    choices:
+      - mph
+  - id: sor_journal_type
+    type: choice
+    description: The types of Society of Rheology journals
+    default: jor
+    choices:
+      - jor
+  - id: formatting
+    required: false
+    type: choice
+    description: Type of column formatting (one- or two-column article).
+    default: twocolumn
+    choices:
+      - onecolumn
+      - twocolumn
+  - id: paper_size
+    required: false
+    type: choice
+    description: Defines the size of the document, i.e. height and width.
+    default: letterpaper
+    choices:
+      - letterpaper
+      - a4paper
+      - a5paper
+files:
+  - template.tex
+  - revtex4-2.cls
+packages:
+  - amsfonts
+  - amsmath
+  - amssymb
+  - datetime
+  - hyperref
+  - lineno
+  - natbib
+  - orcidlink
+  - revsymb4-2
+  - textcase
+  - url
+myst: v1
