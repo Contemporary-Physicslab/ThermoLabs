@@ -9,9 +9,14 @@ project:
     - name: Freek Pols
       affiliations:
         - Science Education and Communication, Delft University of Technology, Delft, The Netherlands
-      orcid: 0000-0002-4690-6460
-    - name: Roel Smit
+      orcid: 0000-0002-4690-6460  
     - name: Tom Haanstra
+      affiliations:
+        - ImPhys, Delft University of Technology, Delft, The Netherlands
+    - name: Roel Smit
+      affiliations:
+        - Quantum Nanoscience, Delft University of Technology, Delft, The Netherlands
+      orcid: 0000-0002-4400-0585    
 
   date: 2025-08-29
   github: https://github.com/Contemporary-Physicslab/ThermoLabs # Change this URL to your GitHub repository
@@ -36,7 +41,7 @@ site:
   template: article-theme
   options:
     favicon: favicon.ico
-    logo: Figuren/site_logo.png
+    # logo: Figuren/site_logo.png
     folders: false
   actions:
     - title: report issue
