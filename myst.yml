@@ -36,7 +36,11 @@ project:
       children:
         - file: brandblusser\thermo.ipynb
 
-    
+
+  jupyter:
+    binder:
+      repo: https://github.com/executablebooks/thebe-binder-base
+
 site:
   template: article-theme
   options:
