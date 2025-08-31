@@ -34,7 +34,7 @@ project:
     - file: index.md
     - title: Brandblusser
       children:
-        - file: brandblusser\thermo.ipynb
+        - file: brandblusser/thermo.ipynb
 
 
   jupyter:
